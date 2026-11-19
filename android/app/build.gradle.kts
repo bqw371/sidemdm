@@ -15,12 +15,12 @@ fun signingValue(key: String, env: String): String? =
     signingProps.getProperty(key) ?: System.getenv(env)
 
 android {
-    namespace = "com.example.personalprofile"
+    namespace = "com.bqw371.motofreedom.dpc"
     compileSdk = 36
 
     defaultConfig {
         // Must match PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME in the QR payload.
-        applicationId = "com.example.personalprofile"
+        applicationId = "com.bqw371.motofreedom.dpc"
         minSdk = 36
         targetSdk = 36
         versionCode = 2
