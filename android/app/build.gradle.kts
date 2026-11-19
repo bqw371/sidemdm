@@ -42,7 +42,15 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("release")
+            // Prefer the "release" signing config when a keystore is supplied
+            // (keystore.properties or DPC_KEYSTORE env var). Fall back to the
+            // debug keystore for CI builds and devs who haven't provisioned a
+            // release key yet — the APK installs but is NOT fit for publication.
+            // Production signing is a release-time step, see FORK.md.
+            signingConfig = if (signingValue("storeFile", "DPC_KEYSTORE") != null)
+                signingConfigs.getByName("release")
+            else
+                signingConfigs.getByName("debug")
         }
     }
 
