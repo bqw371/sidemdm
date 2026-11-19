@@ -1,0 +1,21 @@
+{
+  "name": "sidemdm Android DPC build",
+  "image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
+  "containerEnv": {
+    "ANDROID_HOME": "/opt/android-sdk",
+    "ANDROID_SDK_ROOT": "/opt/android-sdk",
+    "PATH": "/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:${containerEnv:PATH}"
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "bash .devcontainer/install-android-sdk.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "mathiasfrohlich.Kotlin",
+        "fwcd.kotlin"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
