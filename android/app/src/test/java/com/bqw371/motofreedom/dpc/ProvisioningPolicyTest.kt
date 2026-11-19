@@ -1,4 +1,4 @@
-package com.example.personalprofile
+package com.bqw371.motofreedom.dpc
 
 import android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE
 import android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE

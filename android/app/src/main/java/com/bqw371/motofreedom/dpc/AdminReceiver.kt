@@ -1,4 +1,4 @@
-package com.example.personalprofile
+package com.bqw371.motofreedom.dpc
 
 import android.app.admin.DeviceAdminReceiver
 import android.app.admin.DevicePolicyManager
@@ -9,7 +9,7 @@ import android.util.Log
 
 /**
  * Device-admin receiver named in the provisioning QR
- * ("com.example.personalprofile/.AdminReceiver"). Its only job beyond being the admin is to switch
+ * ("com.bqw371.motofreedom.dpc/.AdminReceiver"). Its only job beyond being the admin is to switch
  * the new work profile on: Android leaves a managed profile disabled (no Work tab) until its owner
  * calls setProfileEnabled().
  */

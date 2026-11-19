@@ -1,4 +1,4 @@
-package com.example.personalprofile
+package com.bqw371.motofreedom.dpc
 
 import android.app.Activity
 import android.app.AlertDialog

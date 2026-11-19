@@ -36,7 +36,7 @@ _VENDOR = str(Path(__file__).resolve().parent / "_vendor")
 if _VENDOR not in sys.path:
     sys.path.insert(0, _VENDOR)
 
-DEFAULT_COMPONENT = "com.example.personalprofile/.AdminReceiver"
+DEFAULT_COMPONENT = "com.bqw371.motofreedom.dpc/.AdminReceiver"
 APK_MIME = "application/vnd.android.package-archive"
 EXTRA = "android.app.extra."
 

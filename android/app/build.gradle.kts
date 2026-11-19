@@ -15,12 +15,12 @@ fun signingValue(key: String, env: String): String? =
     signingProps.getProperty(key) ?: System.getenv(env)
 
 android {
-    namespace = "com.example.personalprofile"
+    namespace = "com.bqw371.motofreedom.dpc"
     compileSdk = 36
 
     defaultConfig {
         // Must match PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME in the QR payload.
-        applicationId = "com.example.personalprofile"
+        applicationId = "com.bqw371.motofreedom.dpc"
         minSdk = 36
         targetSdk = 36
         versionCode = 2
@@ -42,7 +42,15 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("release")
+            // Prefer the "release" signing config when a keystore is supplied
+            // (keystore.properties or DPC_KEYSTORE env var). Fall back to the
+            // debug keystore for CI builds and devs who haven't provisioned a
+            // release key yet — the APK installs but is NOT fit for publication.
+            // Production signing is a release-time step, see FORK.md.
+            signingConfig = if (signingValue("storeFile", "DPC_KEYSTORE") != null)
+                signingConfigs.getByName("release")
+            else
+                signingConfigs.getByName("debug")
         }
     }
 
